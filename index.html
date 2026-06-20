@@ -48,7 +48,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── STARFIELD BG ── */
   body::before {
     content:'';
     position:fixed; inset:0; z-index:0; pointer-events:none;
@@ -59,7 +58,6 @@
   }
   body > * { position:relative; z-index:1; }
 
-  /* ── HEADER ── */
   .header {
     padding: clamp(14px,3.5vw,22px) clamp(14px,4vw,40px);
     display: flex;
@@ -125,7 +123,6 @@
   .btn-label { display:none; }
   @media(min-width:380px){ .btn-label { display:inline; } }
 
-  /* ── NAV ── */
   .nav-wrap {
     background: rgba(8,12,32,.9);
     border-bottom: 1px solid var(--border);
@@ -161,13 +158,11 @@
   .tab-super.active::after   { background: linear-gradient(90deg, transparent, var(--purple2), transparent); box-shadow:0 0 8px var(--purple2); }
   .tab-country.active::after { background: linear-gradient(90deg, transparent, var(--cyan), transparent); box-shadow:0 0 8px var(--cyan); }
 
-  /* ── CONTAINER ── */
   .container {
     max-width: 960px; margin: 0 auto;
     padding: clamp(20px,4vw,40px) clamp(12px,4vw,24px) clamp(60px,10vw,100px);
   }
 
-  /* ── POLICY ── */
   .policy-section { display:none; }
   .policy-section.active { display:block; animation:fadeUp .35s ease; }
   @keyframes fadeUp {
@@ -175,7 +170,6 @@
     to   { opacity:1; transform:translateY(0); }
   }
 
-  /* ── CARD ── */
   .policy-card {
     background: linear-gradient(145deg, var(--card), var(--card2));
     border-radius: clamp(12px,3vw,18px);
@@ -186,7 +180,6 @@
   }
   .policy-card:hover { transform:translateY(-2px); }
 
-  /* glow border via pseudo */
   .policy-card::before {
     content:''; position:absolute; inset:0;
     border-radius: inherit;
@@ -194,7 +187,6 @@
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude;
   }
-  /* top accent line */
   .policy-card::after {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
     border-radius: inherit;
@@ -268,7 +260,16 @@
   }
   .warn span:first-child { flex-shrink:0; margin-top:1px; font-size:15px; }
 
-  /* ── COMMISSION ── */
+  .salary-note {
+    margin-top:clamp(10px,2.5vw,14px);
+    background:rgba(0,229,255,.06); border:1px solid rgba(0,229,255,.2);
+    border-radius:10px; padding:clamp(10px,2.5vw,14px) clamp(12px,3vw,16px);
+    font-size:clamp(11.5px,2.8vw,13px); color:rgba(0,229,255,.9);
+    display:flex; gap:10px; line-height:1.65; align-items:flex-start;
+    box-shadow:0 0 20px rgba(0,229,255,.06);
+  }
+  .salary-note span:first-child { flex-shrink:0; margin-top:1px; font-size:15px; }
+
   .comm-grid { display:grid; gap:8px; margin-top:6px; }
   .comm-row {
     background: rgba(255,255,255,.03);
@@ -289,7 +290,6 @@
     font-weight:900; flex-shrink:0; line-height:1;
   }
 
-  /* ── PERF STATS ── */
   .perf-stats {
     display:grid; grid-template-columns:repeat(3,1fr);
     gap:clamp(6px,2vw,12px); margin-bottom:clamp(12px,3vw,16px);
@@ -312,14 +312,12 @@
     font-weight:600;
   }
 
-  /* ── DIVIDER ── */
   .divider {
     border:none; height:1px; margin:clamp(30px,6vw,52px) 0;
     background: linear-gradient(90deg, transparent, var(--purple), var(--magenta), var(--cyan), transparent);
     opacity:.4;
   }
 
-  /* ── WHATSAPP ── */
   .wa-section { display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; }
   .wa-label {
     font-family:'Orbitron',sans-serif;
@@ -340,7 +338,6 @@
   .wa-btn:active { transform:translateY(0); }
   .wa-btn svg { width:clamp(18px,4.5vw,22px); height:clamp(18px,4.5vw,22px); fill:#fff; flex-shrink:0; }
 
-  /* ── MODAL OVERLAY ── */
   .modal-overlay {
     display:none; position:fixed; inset:0;
     background:rgba(5,8,24,.88);
@@ -353,7 +350,6 @@
   .modal-overlay.open { display:flex; animation:fadeIn .2s ease; }
   @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 
-  /* ── MODAL ── */
   .modal {
     background: linear-gradient(160deg, var(--card), var(--card2));
     border: 1px solid var(--border2);
@@ -407,7 +403,6 @@
   }
   .modal-hdr p { font-size:clamp(11.5px,2.8vw,13px); color:var(--muted); }
 
-  /* ── FORM ── */
   .form-grid { display:grid; grid-template-columns:1fr; gap:clamp(10px,2.5vw,14px); }
   @media(min-width:460px) {
     .form-grid { grid-template-columns:repeat(2,1fr); }
@@ -454,8 +449,6 @@
   }
   .submit-btn:hover  { box-shadow:0 8px 28px var(--glow-m); transform:translateY(-1px); }
   .submit-btn:active { transform:translateY(0); }
-
-  /* loading state */
   .submit-btn.loading { opacity:.7; cursor:not-allowed; }
 
   .success-box { display:none; text-align:center; padding:clamp(24px,6vw,36px) 16px; }
@@ -472,7 +465,6 @@
   }
   .success-box p { font-size:clamp(12px,3vw,13.5px); color:var(--muted); line-height:1.75; }
 
-  /* error toast */
   .toast {
     position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
     background:rgba(255,77,100,.15); border:1px solid rgba(255,77,100,.4);
@@ -516,7 +508,7 @@
 
 <div class="container">
 
-  <!-- ══ ADMIN ══ -->
+  <!-- ADMIN -->
   <div id="admin" class="policy-section active">
 
     <div class="policy-card admin-card">
@@ -546,6 +538,7 @@
           <div class="comm-pct" style="color:var(--pink);text-shadow:0 0 14px var(--glow-m)">5%</div>
         </div>
       </div>
+      <div class="salary-note"><span>💰</span><span>Commission / Salary will be paid on the <strong>10th of every month</strong>.</span></div>
     </div>
 
     <div class="policy-card admin-card">
@@ -571,7 +564,7 @@
 
   </div>
 
-  <!-- ══ SUPER ADMIN ══ -->
+  <!-- SUPER ADMIN -->
   <div id="super" class="policy-section">
 
     <div class="policy-card super-card">
@@ -608,6 +601,7 @@
           <div class="comm-pct" style="color:var(--purple2);text-shadow:0 0 14px var(--glow-p)">2%</div>
         </div>
       </div>
+      <div class="salary-note"><span>💰</span><span>Commission / Salary will be paid on the <strong>10th of every month</strong>.</span></div>
     </div>
 
     <div class="policy-card super-card">
@@ -633,7 +627,7 @@
 
   </div>
 
-  <!-- ══ COUNTRY ADMIN ══ -->
+  <!-- COUNTRY ADMIN -->
   <div id="country" class="policy-section">
 
     <div class="policy-card country-card">
@@ -677,6 +671,7 @@
           <div class="comm-pct" style="color:var(--cyan);text-shadow:0 0 14px var(--glow-c)">1%</div>
         </div>
       </div>
+      <div class="salary-note"><span>💰</span><span>Commission / Salary will be paid on the <strong>10th of every month</strong>.</span></div>
     </div>
 
     <div class="policy-card country-card">
@@ -790,11 +785,9 @@
   </div>
 </div>
 
-<!-- Toast -->
 <div class="toast" id="toast"></div>
 
 <script>
-  /* ── NAV ── */
   function showPolicy(id, el) {
     document.querySelectorAll('.policy-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
@@ -802,7 +795,6 @@
     el.classList.add('active');
   }
 
-  /* ── MODAL ── */
   function openModal() {
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -815,7 +807,6 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
 
-  /* swipe-down to close */
   (function () {
     const modal = document.getElementById('modal');
     let startY = 0;
@@ -825,7 +816,6 @@
     }, { passive: true });
   })();
 
-  /* ── TOAST ── */
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
@@ -833,9 +823,6 @@
     setTimeout(() => t.classList.remove('show'), 2500);
   }
 
-  /* ── GOOGLE SHEETS SUBMIT ── */
-  // ⚠️ IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
-  // See instructions at the bottom of this file
   const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzjC77trLR_qwia78wzV2V9W-OfnECstMB2wcH44fhlPjiQUFvoupDQqMnBbCSGoi9Liw/exec';
 
   async function submitForm() {
@@ -874,14 +861,12 @@
     };
 
     try {
-      // Google Apps Script requires no-cors mode
       await fetch(SHEET_WEBHOOK, {
         method:  'POST',
         mode:    'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload),
       });
-      // no-cors means we can't read the response — assume success
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('successBox').style.display  = 'block';
     } catch (err) {
@@ -893,36 +878,5 @@
   }
 </script>
 
-<!--
-╔══════════════════════════════════════════════════════════════════╗
-║          GOOGLE SHEETS INTEGRATION – SETUP INSTRUCTIONS         ║
-╠══════════════════════════════════════════════════════════════════╣
-║                                                                  ║
-║  STEP 1: Open your Google Sheet:                                 ║
-║  https://docs.google.com/spreadsheets/d/                         ║
-║  1k9h5x_KrRV1QDGL65zD6u11PNP1z-TkJ3JuKD5JFKn0/edit             ║
-║                                                                  ║
-║  STEP 2: Add these column headers in Row 1:                      ║
-║  Timestamp | Applying Under | Full Name | Age | Agency Name |    ║
-║  Agency ID | Admin ID | Previous Platform | Previous Revenue |   ║
-║  No. of Agencies | WhatsApp | Email                              ║
-║                                                                  ║
-║  STEP 3: In the Sheet, go to:                                    ║
-║  Extensions → Apps Script                                        ║
-║                                                                  ║
-║  STEP 4: Paste the Google Apps Script code below                 ║
-║  (see the separate code block at the very end)                   ║
-║                                                                  ║
-║  STEP 5: Click Deploy → New Deployment                           ║
-║  Type: Web App                                                   ║
-║  Execute as: Me                                                  ║
-║  Who has access: Anyone                                          ║
-║  → Copy the Web App URL                                          ║
-║                                                                  ║
-║  STEP 6: Replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL             ║
-║  in the JavaScript above with the copied URL                     ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
--->
 </body>
 </html>
